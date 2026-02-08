@@ -1,0 +1,60 @@
+import { Callout } from 'nextra/components'
+
+# Future Work
+
+## Current Limitations
+
+| Limitation | Impact | Path Forward |
+|------------|--------|-------------|
+| Synthetic data only | Model accuracy unvalidated on real outcomes | Partner with OPTN/UNOS for de-identified data |
+| Model uncertainty | Predictions have confidence ranges, not guarantees | Ensemble methods and calibration monitoring |
+| No geographic logistics | Transport time and OR scheduling not modeled | Integrate real-time logistics data |
+| Single organ type | Only kidneys are modeled | Extend to liver, heart, lung |
+| Static recipient data | Health changes between listing and offer not captured | Real-time EHR integration |
+| Regulatory approval | Not cleared for clinical use | FDA pathway evaluation needed |
+
+## Planned Enhancements
+
+### Near-term (next iteration)
+
+- **Real OPTN/UNOS data** — Train on actual transplant outcomes (with appropriate permissions and IRB approval)
+- **HLA compatibility matching** — Add immunological compatibility as a matching feature
+- **Geographic constraints** — Model transport logistics and ischemic time impact
+- **Multi-objective optimization** — Formally balance fairness, efficiency, and outcomes
+
+### Medium-term
+
+- **Dynamic waitlist updates** — Reflect recipient health changes in real-time
+- **Machine perfusion integration** — Use real-time organ perfusion data for viability scoring
+- **Multi-organ support** — Extend models to liver, heart, and lung allocation
+- **Temporal dynamics** — Model organ degradation over time and recipient health trajectories
+
+### Long-term
+
+- **Biomarker integration** — Cell-free DNA, proteomics for better viability assessment
+- **Clinical trials** — Prospective validation in controlled settings
+- **National deployment** — Integration with existing OPTN infrastructure as middleware
+- **International adaptation** — Customize for Eurotransplant, NHS, and other systems
+
+## Validation Roadmap
+
+<Callout>
+No system like this should be deployed without rigorous prospective validation.
+</Callout>
+
+1. **Retrospective study** — Validate model on historical SRTR data
+2. **Single-center pilot** — Observational study at one transplant center
+3. **Multi-center trial** — Prospective comparison across diverse centers
+4. **Randomized controlled trial** — Cluster-randomized comparison of allocation strategies
+5. **Phased national rollout** — With continuous monitoring and equity auditing
+
+## What this project demonstrates
+
+Even with synthetic data, this simulation shows that:
+
+- Continuous viability scoring outperforms binary thresholds
+- Risk-aware matching can reduce discard rates by 15-25%
+- Fairness can be maintained while improving efficiency
+- The approach is technically feasible and clinically interpretable
+
+The next step is validation on real data with clinical partners.

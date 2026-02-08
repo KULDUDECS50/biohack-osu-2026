@@ -1,0 +1,67 @@
+import { Steps, Callout } from 'nextra/components'
+
+# Allocation Flow
+
+## Step-by-step process
+
+<Steps>
+
+### Donor kidney enters system
+
+OPO uploads donor clinical data: age, medical history, lab values, KDPI, projected cold ischemic time. The system validates completeness and flags missing fields.
+
+### Viability score is generated
+
+The ML model scores the kidney on a 0-100 continuous scale and outputs predicted graft success rates for different recipient risk categories.
+
+**Time: under 30 seconds.**
+
+### Candidate pool is filtered
+
+All active waitlist recipients are filtered for:
+- ABO blood type compatibility
+- Acceptable HLA mismatch levels
+- Geographic proximity (ischemic time limits)
+- Center-specific acceptance criteria
+
+Typical result: 50-200 compatible candidates for a kidney.
+
+### Dynamic ranking is produced
+
+Recipients are reordered within priority tiers based on utility scores. Existing OPTN priority rules (urgency, waiting time, pediatric status) are preserved as hard constraints.
+
+**Time: under 20 seconds.**
+
+### Notifications go out
+
+Instead of sequential one-at-a-time offers:
+
+- **Tier 1:** Top 3-5 recipients notified simultaneously
+- **Tier 2:** Next 5-8 notified if Tier 1 declines
+- **Tier 3:** Remaining candidates for fallback
+
+This parallel approach cuts hours off the process.
+
+### Center evaluates and responds
+
+Coordinators see: donor summary, viability score, predicted outcomes for their patient, and a risk-benefit comparison (accept now vs. wait). They can accept, provisionally accept, or decline with reason.
+
+### Organ is allocated
+
+First acceptance wins. All other notifications cancel. Transport and surgery are coordinated. Full audit trail is logged.
+
+</Steps>
+
+## Traditional vs. ML-Optimized
+
+| Aspect | Traditional | ML-Optimized |
+|--------|------------|-------------|
+| Offer style | Sequential (one at a time) | Parallel tiers |
+| Ranking basis | Fixed match list | Dynamic utility scores |
+| Marginal organs | Offered to top candidates who decline | Routed to appropriate recipients |
+| Typical time | 90-150 minutes | 30-60 minutes |
+| Discard outcome | High for marginal organs | Significantly reduced |
+
+<Callout type="info">
+In our simulation, the ML-optimized approach reduced median allocation time by approximately 40% compared to traditional sequential offers.
+</Callout>

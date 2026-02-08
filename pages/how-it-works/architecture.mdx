@@ -1,0 +1,61 @@
+import { Callout } from 'nextra/components'
+
+# Architecture
+
+## System Components
+
+The platform has four layers that run in sequence when a donor organ enters the system.
+
+```
+Donor Data → Viability Scoring → Recipient Matching → Allocation
+```
+
+### 1. Data Ingestion
+
+Accepts donor clinical data and recipient waitlist profiles:
+
+- **Donor data** — age, BMI, hypertension, diabetes, smoking, cause of death, serum creatinine, KDPI
+- **Recipient data** — age, EPTS score, blood type, dialysis vintage, urgency status, PRA sensitivity
+
+All data is validated for completeness and physiological plausibility before entering the pipeline.
+
+### 2. Viability Scoring Engine
+
+An ML model (XGBoost) scores the donor kidney on a **continuous 0-100 scale** instead of a binary accept/reject.
+
+Output includes:
+- Viability score
+- Predicted graft success probability
+- Confidence interval
+
+See [Viability Scoring](/how-it-works/viability-scoring) for details.
+
+### 3. Recipient Matching Engine
+
+Filters compatible recipients, then dynamically reorders them based on who benefits most from *this specific organ*.
+
+See [Recipient Matching](/how-it-works/matching) for details.
+
+### 4. Allocation Simulation
+
+Compares two policies side-by-side:
+
+- **Traditional** — Sequential first-in-line offers based on standard match list
+- **ML-Optimized** — Risk-aware ranking that routes marginal organs to appropriate recipients
+
+See [Allocation Flow](/how-it-works/allocation-flow) for the step-by-step process.
+
+<Callout type="info">
+In our simulation, all four stages run on synthetic data generated to match real OPTN distributions. No patient data is used.
+</Callout>
+
+## Pipeline Files
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| Data generation | `data_generator.py` | Creates synthetic donor/recipient data |
+| Feature engineering | `feature_engineering.py` | Processes raw data into model features |
+| Model training | `model_training.py` | Trains XGBoost viability model |
+| Allocation | `allocation_simulator.py` | Runs traditional vs. ML allocation |
+| Evaluation | `evaluation.py` | Generates metrics and visualizations |
+| Orchestrator | `main.py` | Runs the full pipeline end-to-end |

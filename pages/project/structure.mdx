@@ -1,0 +1,43 @@
+# Project Structure
+
+```
+BioHack/
+├── data/
+│   ├── raw/                  # Raw synthetic data
+│   └── processed/            # Processed features
+├── models/                   # Trained ML models
+├── outputs/
+│   ├── plots/               # Visualization outputs
+│   └── reports/             # Evaluation reports
+├── data_generator.py        # Synthetic data generation
+├── feature_engineering.py   # Feature processing pipeline
+├── model_training.py        # ML model training
+├── allocation_simulator.py  # Allocation policy simulation
+├── evaluation.py            # Performance evaluation
+├── main.py                  # Main pipeline orchestrator
+├── requirements.txt         # Project dependencies
+└── README.md
+```
+
+## File Descriptions
+
+### Pipeline Scripts
+
+| File | What it does |
+|------|-------------|
+| `data_generator.py` | Generates synthetic donor and recipient records matching real OPTN distributions |
+| `feature_engineering.py` | Cleans raw data, creates interaction features, normalizes values |
+| `model_training.py` | Trains XGBoost viability model with cross-validation and tuning |
+| `allocation_simulator.py` | Runs side-by-side comparison of traditional vs. ML-optimized allocation |
+| `evaluation.py` | Calculates metrics, generates plots, and writes evaluation reports |
+| `main.py` | Orchestrates the full pipeline from data generation through evaluation |
+
+### Data Directories
+
+| Directory | Contents |
+|-----------|----------|
+| `data/raw/` | Generated donor and recipient CSVs before processing |
+| `data/processed/` | Engineered features ready for model training |
+| `models/` | Serialized trained XGBoost models |
+| `outputs/plots/` | Discard rate charts, ROC curves, fairness distributions |
+| `outputs/reports/` | Text and JSON evaluation summaries |

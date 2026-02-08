@@ -1,0 +1,57 @@
+import { Callout } from 'nextra/components'
+
+# Recipient Matching
+
+## Why matching matters
+
+Not every patient needs a perfect kidney. Not every patient can afford to wait for one.
+
+The matching engine dynamically reorders the candidate list for each organ, prioritizing recipients who derive the **greatest survival benefit** from *this specific kidney* — not just whoever has waited longest.
+
+## Who benefits from marginal organs?
+
+Different recipients have different risk tolerances:
+
+| Recipient Profile | Risk Tolerance | Rationale |
+|-------------------|---------------|-----------|
+| Age 60+, long dialysis history | **High** | Waiting is more dangerous than a marginal kidney |
+| Highly sensitized (high PRA) | **High** | May never get a better offer due to immunological barriers |
+| Young, healthy, first transplant | **Low** | Likely to receive multiple good offers; worth waiting |
+| Rare blood type, remote location | **High** | Few compatible organs reach them |
+
+## How ranking works
+
+For each donor kidney, the system:
+
+1. **Filters** for ABO blood type compatibility and basic eligibility
+2. **Preserves** existing priority tiers (medical urgency, pediatric status, waiting time)
+3. **Calculates** a utility score for each candidate based on:
+   - Predicted graft success for this donor-recipient pair
+   - Recipient's waitlist mortality risk
+   - Likelihood of a better offer coming soon
+4. **Reorders** recipients within priority tiers by utility score
+
+<Callout>
+No recipient ever loses their priority tier. Reordering happens *within* tiers only. A Status 1A patient always ranks above a standard-status patient.
+</Callout>
+
+## Example
+
+**Donor kidney: viability score 66 (marginal)**
+
+| Recipient | Age | Dialysis Years | Traditional Rank | ML Rank | Why |
+|-----------|-----|---------------|-----------------|---------|-----|
+| A | 35 | 2 | #1 | #3 | Young, will get better offers soon |
+| B | 62 | 5 | #3 | #1 | High waitlist mortality, benefits most |
+| C | 58 | 4 | #2 | #2 | Highly sensitized, few future offers |
+
+Recipient B — who would die waiting under the old system — gets the kidney. Recipient A waits a few more weeks and gets a better one.
+
+Both patients are better off.
+
+## Safeguards
+
+- **Maximum position change:** No recipient drops more than 10 positions due to reordering
+- **Equity monitoring:** Allocation outcomes tracked by demographics to prevent systematic bias
+- **Override capability:** Clinicians can always override the algorithmic ranking with documented justification
+- **Transparency:** Full ranking rationale is logged and auditable
