@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Life Force Color Palette */
+  --vitality: #8B1538;        /* Deep burgundy - life force */
+  --vitality-dark: #6B0F2A;   /* Darker burgundy */
+  --hope: #6B8E23;            /* Sage green - renewal */
+  --hope-light: #8FA63F;      /* Light sage */
+  --critical: #D32F2F;        /* Alert red */
+  --background: #FFFEF8;      /* Warm white */
+  --surface: #F5F3ED;         /* Cream */
+  --border: #D4CFC0;          /* Soft taupe */
+  --text-primary: #1A1612;    /* Near black */
+  --text-secondary: #786F5F;  /* Warm gray */
+
+  /* Typography */
+  --font-display: 'Crimson Pro', Georgia, serif;
+  --font-mono: 'Azeret Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular numbers for data tables */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

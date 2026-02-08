@@ -1,0 +1,56 @@
+import { Callout } from 'nextra/components'
+
+# The Problem
+
+## Kidneys are being wasted
+
+Over 100,000 patients are on the U.S. transplant waiting list. More than 6,000 die each year waiting. Yet **20% of recovered kidneys are discarded** — roughly 4,000-5,000 organs annually.
+
+These organs are not unusable. They are *marginal* — slightly older donors, minor comorbidities, longer ischemic times — and the current system has no good way to place them.
+
+## Why it happens
+
+### Binary thresholds
+
+Organs are scored using the **Kidney Donor Profile Index (KDPI)**, a 0-100% composite metric. Higher KDPI means lower quality.
+
+<Callout type="warning">
+Organs with KDPI above 85% face discard rates of roughly 60%, even though many could function well in appropriate recipients.
+</Callout>
+
+The problem: KDPI is treated as a pass/fail gate. An organ at KDPI 84% gets accepted. One at 86% gets thrown away. The biological difference is minimal.
+
+### Sequential "first-in-line" offers
+
+When an organ becomes available, it is offered to recipients one at a time, starting at the top of the match list.
+
+- Recipient #1 declines (organ too old)
+- Recipient #2 declines (center protocol)
+- Recipient #3 declines (surgeon unavailable)
+- ... hours pass, ischemic time increases, quality degrades
+- Eventually the organ is discarded
+
+Each decline wastes time and worsens the organ.
+
+### Center-level risk aversion
+
+Transplant centers are measured on one-year graft survival. Accepting a marginal organ that fails hurts their metrics. So they decline — even when the organ could help a patient for whom waiting is more dangerous.
+
+## The tradeoff nobody sees
+
+For many patients, **waiting is not safe**:
+
+- Dialysis patients face 15-20% annual mortality
+- Health deteriorates over time, reducing transplant candidacy
+- A marginal kidney today may be better than a perfect kidney that never comes
+
+Current systems do not model this tradeoff. They optimize for organ quality in isolation, ignoring recipient-specific risk.
+
+## What's needed
+
+A system that:
+
+- Treats organ quality as a **spectrum**, not a binary
+- Matches organ risk to **recipient risk tolerance**
+- Reduces time wasted on sequential declines
+- Keeps all existing fairness and priority protections

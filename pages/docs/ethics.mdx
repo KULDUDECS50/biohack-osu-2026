@@ -1,0 +1,60 @@
+import { Callout } from 'nextra/components'
+
+# Ethics & Safety
+
+<Callout type="warning">
+This system is decision support, not automation. No organ is allocated without a human clinician approving the decision.
+</Callout>
+
+## What the system does NOT do
+
+- Does not remove or override any existing OPTN priority rules
+- Does not automatically allocate organs without human approval
+- Does not use race, income, insurance, or disability as model features
+- Does not penalize clinicians for overriding recommendations
+- Does not lower acceptance standards — it matches more intelligently
+
+## Fairness protections
+
+### Priority rules are preserved
+
+Medical urgency, pediatric priority, waiting time, and geographic tiers remain as hard constraints. The system reorders recipients **only within** priority tiers, never across them.
+
+### No demographic discrimination
+
+Protected attributes (race, ethnicity, socioeconomic status) are **excluded** from the model. Allocation outcomes are monitored by demographic group to detect indirect bias from correlated features.
+
+If disparities emerge, the algorithm includes corrective weighting mechanisms.
+
+### Position change limits
+
+No recipient can drop more than 10 positions due to utility-based reordering. This prevents extreme deprioritization of any candidate.
+
+## Transparency
+
+Every allocation decision is fully auditable:
+
+- Original match list and priority scores
+- ML-generated viability scores and feature importance
+- Reordering rationale for each recipient
+- Final allocation outcome and clinician response
+
+Clinicians can always see **why** the system made a recommendation, not just what it recommended.
+
+## Human oversight
+
+- Transplant coordinators review all organ offers with full clinical context
+- Surgeons can override algorithmic recommendations with documented justification
+- Overrides are logged for outcome analysis but never penalized
+- If the system is unavailable, allocation reverts to standard protocols
+
+## Limitations we acknowledge
+
+- ML models trained on historical data may encode past biases
+- Synthetic data cannot fully replicate real-world complexity
+- Model predictions have uncertainty — confidence intervals are always shown
+- Algorithmic fairness is an ongoing process, not a solved problem
+
+## Medical Disclaimer
+
+This is a research simulation tool using synthetic data. It is **not** intended for clinical decision-making. Real kidney allocation is governed by OPTN/UNOS and involves complex medical, ethical, and regulatory considerations beyond the scope of this prototype.

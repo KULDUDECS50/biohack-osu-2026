@@ -31,3 +31,7 @@ Thumbs.db
 
 # Environment variables
 .env
+
+# Node.js / Next.js
+.next
+node_modules

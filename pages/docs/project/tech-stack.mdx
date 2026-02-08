@@ -1,0 +1,53 @@
+# Tech Stack
+
+## Languages & Frameworks
+
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| Core language | Python 3.11+ | ML pipeline, data processing, simulation |
+| ML model | XGBoost | Donor viability prediction |
+| Data processing | pandas, NumPy | Feature engineering and analysis |
+| Visualization | matplotlib, seaborn | Result plots and evaluation charts |
+| Evaluation | scikit-learn | Model metrics (AUC, calibration, Brier score) |
+
+## ML Model
+
+**Algorithm:** XGBoost (gradient-boosted decision trees)
+
+**Why not deep learning?**
+- XGBoost outperforms neural networks on structured tabular data
+- Feature importance is directly interpretable
+- Handles missing values natively
+- Fast training and inference
+- Proven track record in clinical risk models
+
+**Training approach:**
+- Five-fold stratified cross-validation
+- Grid search hyperparameter tuning
+- Temporal validation on held-out data
+- Weighted sampling for class imbalance
+
+**Performance:** C-statistic of 0.74 (good discrimination for clinical risk prediction).
+
+## Data
+
+All data is **synthetic**, generated to match real-world OPTN/UNOS distributions:
+
+- Donor demographics and clinical features
+- Recipient waitlist characteristics
+- KDPI and EPTS score distributions
+- Realistic outcome correlations
+
+No patient data is used at any point.
+
+## Scalability Considerations
+
+The simulation runs locally on a single machine. A production deployment would require:
+
+- HIPAA-compliant cloud infrastructure (AWS/GCP)
+- HL7 FHIR APIs for OPTN integration
+- PostgreSQL for transactional data
+- Redis for real-time caching
+- Role-based access control and audit logging
+
+These are described conceptually — no cloud infrastructure is deployed for this prototype.
