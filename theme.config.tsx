@@ -1,19 +1,19 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span><strong>KidneyAI</strong></span>,
+  logo: (
+    <span>
+      <strong>Match</strong>
+    </span>
+  ),
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "https://github.com/KULDUDECS50/biohack-osu-2026",
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
   footer: {
-    content: (
-      <span>
-        BMES Hackathon 2026 - Kidney Allocation Optimization
-      </span>
-    )
-  }
-}
+    content: <span>Match - ML-powered kidney allocation research</span>,
+  },
+};
 
-export default config
+export default config;

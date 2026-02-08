@@ -5,4 +5,12 @@ const withNextra = nextra({
   themeConfig: './theme.config.tsx',
 })
 
-export default withNextra()
+export default withNextra({
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      'supports-color': false,
+    }
+    return config
+  },
+})

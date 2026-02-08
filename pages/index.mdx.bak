@@ -51,8 +51,8 @@ Results from simulation with 5,000 synthetic donors and 3,000 recipients.
 
 ## Quick Links
 
-- [The Problem](/problem) — Why kidneys are wasted today
-- [How It Works](/how-it-works) — Architecture, scoring, and matching
-- [Results](/results) — Metrics and projected impact
-- [Get Started](/project/usage) — Run the simulation yourself
-- [Ethics & Safety](/ethics) — Fairness, transparency, and safeguards
+- [The Problem](/docs/problem) — Why kidneys are wasted today
+- [How It Works](/docs/how-it-works) — Architecture, scoring, and matching
+- [Results](/docs/results) — Metrics and projected impact
+- [Get Started](/docs/project/usage) — Run the simulation yourself
+- [Ethics & Safety](/docs/ethics) — Fairness, transparency, and safeguards

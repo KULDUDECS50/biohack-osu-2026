@@ -1,9 +1,11 @@
 export default {
-  index: "Home",
-  problem: "The Problem",
-  "how-it-works": "How It Works",
-  results: "Results",
-  project: "Project",
-  ethics: "Ethics & Safety",
-  "future-work": "Future Work"
+  index: {
+    title: "Home",
+    type: "page",
+    display: "hidden"
+  },
+  docs: {
+    title: "Documentation",
+    type: "page"
+  }
 }
