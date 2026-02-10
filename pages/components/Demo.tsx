@@ -1,12 +1,11 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import styles from './Demo.module.css';
 
-// Color function for score bars (Life Force palette)
 function getScoreColor(score: number): string {
-  if (score >= 90) return '#6B8E23';  // Excellent - sage green (hope)
-  if (score >= 70) return '#8FA63F';  // Good - light sage
-  if (score >= 50) return '#D4A76A';  // Marginal - warm gold
-  return '#D32F2F';                   // High risk - critical red
+  if (score >= 90) return '#16a34a';
+  if (score >= 70) return '#22c55e';
+  if (score >= 50) return '#eab308';
+  return '#dc2626';
 }
 
 // Animated counter hook (SSR-safe)
@@ -136,10 +135,6 @@ export default function Demo() {
     return (
       <section className={styles.demo}>
         <div className={styles.container}>
-          <h2 className={styles.title}>See the difference</h2>
-          <p className={styles.subtitle}>
-            Compare allocation methods on 100 synthetic donors
-          </p>
           <div className={styles.controls}>
             <button className={`${styles.btn} ${styles.active}`}>
               Traditional
@@ -156,11 +151,6 @@ export default function Demo() {
   return (
     <section className={styles.demo}>
       <div className={styles.container}>
-        <h2 className={styles.title}>See the difference</h2>
-        <p className={styles.subtitle}>
-          Compare allocation methods on 100 synthetic donors
-        </p>
-
         <div className={styles.controls}>
           <button
             className={`${styles.btn} ${method === 'traditional' ? styles.active : ''}`}

@@ -1,12 +1,67 @@
-# Documentation
+import Demo from '../components/Demo'
 
-Welcome to the Kidney Allocation Optimization System documentation.
+# Every year, 3,500 kidneys are discarded while 5,000 patients die waiting.
 
-Use the navigation sidebar to explore:
+**Match** is an ML-powered kidney allocation system that treats organ quality as a spectrum — not a binary accept/reject decision. By matching marginal organs to suitable recipients, we can save hundreds of additional lives per year.
 
-- **The Problem** — Understanding the current kidney allocation challenges
-- **How It Works** — System architecture and methodology
-- **Results** — Performance metrics and impact analysis
-- **Project** — Technical implementation and usage guide
-- **Ethics & Safety** — Fairness considerations and safeguards
-- **Future Work** — Planned enhancements and research directions
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '1rem',
+  margin: '2rem 0',
+  textAlign: 'center'
+}}>
+  <div style={{ padding: '1.5rem', background: 'var(--medical-blue-light, #dbeafe)', borderRadius: '8px' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--medical-blue, #2563eb)' }}>22%</div>
+    <div style={{ fontSize: '0.85rem', color: '#64748b' }}>Current kidney discard rate</div>
+  </div>
+  <div style={{ padding: '1.5rem', background: 'var(--medical-blue-light, #dbeafe)', borderRadius: '8px' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--medical-blue, #2563eb)' }}>90K+</div>
+    <div style={{ fontSize: '0.85rem', color: '#64748b' }}>Patients on waitlist</div>
+  </div>
+  <div style={{ padding: '1.5rem', background: 'var(--medical-blue-light, #dbeafe)', borderRadius: '8px' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--medical-blue, #2563eb)' }}>5K+</div>
+    <div style={{ fontSize: '0.85rem', color: '#64748b' }}>Deaths per year while waiting</div>
+  </div>
+</div>
+
+> **Research prototype** — Simulation with synthetic data. Not for clinical use.
+
+---
+
+## Our Presentation
+
+<div className="slides-container">
+  <iframe
+    src="https://docs.google.com/presentation/d/1iYLOdcAN7-DxYQ_y4_bbKgqq-WLMUnp_X0-4rZTIvPY/embed?start=false&loop=false&delayms=3000"
+    allowFullScreen
+  />
+</div>
+
+---
+
+## Live Demo
+
+Compare traditional kidney allocation against Match's ML-powered approach on 100 synthetic donors.
+
+<Demo />
+
+---
+
+## How It Works
+
+| Step | Traditional System | Match System |
+|------|-------------------|--------------|
+| **Scoring** | Binary KDPI cutoff (accept/reject) | Continuous ML quality spectrum (0-100) |
+| **Matching** | Sequential offers (2-4 hours per organ) | Parallel matching (30-60 min) |
+| **Marginal organs** | 22% discard rate due to center risk aversion | 8% discard rate — suitable recipients found |
+
+---
+
+## Quick Links
+
+- [**The Problem**](/docs/problem) — Why 22% of donated kidneys are wasted
+- [**How It Works**](/docs/how-it-works) — Architecture, ML models, and allocation flow
+- [**Results**](/docs/results) — Simulation outcomes and projected impact
+- [**Ethics & Safety**](/docs/ethics) — Fairness, transparency, and human oversight
+- [**Project**](/docs/project) — Tech stack, setup, and usage
